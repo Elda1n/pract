@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>EasyTasks</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>EasyTasks</h1>
+        <form action="/add" method="post">
+            <input type="text" name="title" placeholder="Нова задача" required>
+            <button type="submit">Додати</button>
+        </form>
+        <ul>
+            {% for task in tasks %}
+                <li class="{{ 'done' if task.done }}">
+                    {{ task.title }}
+                    {% if not task.done %}
+                        <a href="/done/{{ task.id }}">✅</a>
+                    {% endif %}
+                    <a href="/delete/{{ task.id }}">❌</a>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+</body>
+</html>
