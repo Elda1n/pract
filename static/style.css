@@ -39,5 +39,15 @@ li.done {
 }
 a {
     text-decoration: none;
-    margin-left: 0.5rem;
+    font-size: 20px;
+}
+
+li span {
+    flex: 1;
+    word-break: break-word;
+}
+
+li div {
+    display: flex;
+    gap: 0.5rem;
 }
